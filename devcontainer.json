@@ -1,0 +1,61 @@
+{
+	"name": "PythonDev",
+    "build": {"dockerfile": "Dockerfile"},
+	"features": {
+		"ghcr.io/devcontainers/features/python:1": {
+			"version": "3.10.10"
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.black-formatter",
+				"ms-python.pylint",
+				"oderwat.indent-rainbow",
+				"njpwerner.autodocstring",
+				"doi.fileheadercomment"
+			],
+			"settings": {
+				// Formatter
+				"[python]": {
+					"editor.defaultFormatter": "ms-python.black-formatter",
+					"python.formatting.provider": "black",
+					"python.formatting.blackArgs": [
+						"--line-length=120",
+						"--target=p38"
+					]
+				},
+				"editor.formatOnSave": true,
+				// Linter
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": true,
+				"python.linting.pylintArgs": [
+					"--max-line-length=120",
+					"-d C0330",
+					"-d W1203"
+				],
+				// autoDocString
+				"autoDocstring.docstringFormat": "numpy",
+				// File Header Comment
+				"fileHeaderComment.template": {
+					"*":[
+						"${commentbegin}",
+						"${commentprefix} Created on ${date}",
+						"${commentprefix} Copyright (c) ${year} Alex Billingham",
+						"${commentprefix} https://github.com/alexbillingham",
+						"${commentend}",
+						"\"\"\"\nDocstring: overview of the module\n\"\"\""
+					]
+				}
+			}
+		}
+	}
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
