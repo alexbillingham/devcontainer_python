@@ -15,6 +15,8 @@ Open the project you want to add these devcontainer files to.
 Run the command `git submodule add [url to this repo] .devcontainer`.
 This will add the repo as a submodule into the .devcontainer folder (what VSCode looks for when starting devcontainer).
 
+> Note: If you forget to add the submodule into a directory called `.devcontainer` you can run: `git mv devcontainer_python .devcontainer`
+
 ## Running devcontainer
 
 Click the bottom left "><" icon and select "Reopen in container" and rebuild if prompted.
